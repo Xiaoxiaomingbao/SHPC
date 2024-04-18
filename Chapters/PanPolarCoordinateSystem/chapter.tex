@@ -10,7 +10,7 @@
 \usepackage{tikz}
 
 \title{平面极坐标、柱坐标、球坐标下的加速度表达式}
-\author{小小洺宝}
+\author{申治洺}
 \date{2024年4月18日}  % 最后一次编译的时间
 
 % Document
@@ -26,27 +26,90 @@
 
     下面是三种坐标系的图。不同书上用来表示坐标的字母不同，这里统一以图上为准。
 
-    对平面极坐标系
+    对平面极坐标系，
     \begin{equation*}
         \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta}
         % 微分符号为直立的小写字母d，要使用\mathrm{text}
     \end{equation*}
     
-    对柱坐标系
+    对柱坐标系，
     \begin{equation*}
-        \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta} + \mathrm{d}z\cdot\hat{k}
+        \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta} +
+        \mathrm{d}z\cdot\hat{k}
     \end{equation*}
     
-    对球坐标系
+    对球坐标系，
     \begin{equation*}
-        \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta} + r\mathrm{sin}\theta
-        \mathrm{d}\varphi\cdot\hat{\varphi}
+        \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta} +
+        r\sin\theta\mathrm{d}\varphi\cdot\hat{\varphi}
     \end{equation*}
 
-    \section{方法一\space直接求导}\label{sec:2}
+    由此很容易得出三种坐标系下的速度表达式，
+    \begin{gather*}
+        \vec{v} = \frac{\mathrm{d}\vec{r}}{\mathrm{d}t} = \frac{\mathrm{d}\vec{l}}{\mathrm{d}t} =
+        \dot{r}\hat{r} + r\dot{\theta}\hat{\theta} \\
+        \vec{v} = \frac{\mathrm{d}\vec{r}}{\mathrm{d}t} = \frac{\mathrm{d}\vec{l}}{\mathrm{d}t} =
+        \dot{r}\hat{r} + r\dot{\theta}\hat{\theta} + \dot{z}\hat{k} \\
+        \vec{v} = \frac{\mathrm{d}\vec{r}}{\mathrm{d}t} = \frac{\mathrm{d}\vec{l}}{\mathrm{d}t} =
+        \dot{r}\hat{r} + r\dot{\theta}\hat{\theta} + r\sin\theta\dot{\varphi}\hat{\varphi}
+    \end{gather*}
+    % begin{equation*} ... end{equation*} 环境只适用于单行的居中无编号公式
 
-    \section{方法二\space借助转动系的加速度变换公式}\label{sec:3}
+    接下来准备求加速度，先求出各个基底变化率的表达式（一会儿会用）。
+    因为对平面极坐标系的加速度表达式稍加修改即可得柱坐标系的加速度表达式，所以下面不详细介绍柱坐标系的加速度表达式的求法。
 
-    \section{方法三\space借助广义力形式的拉格朗日方程}\label{sec:4}
+    对平面极坐标系，画画图就可得出径向单位向量的增量平行于角向单位向量，角向单位向量的增量平行于径向单位向量，
+    两者的大小也很容易确定。
+
+    \begin{gather*}
+        \dot{\hat{r}} = \dot{\theta}\hat{\theta} \\
+        \dot{\hat{\theta}} = -\dot{\theta}\hat{r}
+    \end{gather*}
+
+    除了这样做，也可以借助直角坐标系，
+    \begin{gather*}
+        \hat{r} = (\cos\theta,\sin\theta) \\
+        \dot{\hat{r}} = (-\sin\theta\dot{\theta},\cos\theta\dot{\theta}) \\
+        \hat{\theta} = (-\sin\theta,\cos\theta) \\
+        \dot{\hat{\theta}} = (-\cos\theta\dot{\theta},-\sin\theta\dot{\theta})
+    \end{gather*}
+
+    立得，
+    \begin{gather*}
+        \dot{\hat{r}} = \dot{\theta}\hat{\theta} \\
+        \dot{\hat{\theta}} = -\dot{\theta}\hat{r}
+    \end{gather*}
+
+    对球坐标系，不太容易用画图求各个基底变化率的表达式，一般借助直角坐标系，
+    \begin{gather*}
+        \hat{r} = (\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta) \\
+        \hat{\theta} = (\cos\theta\cos\varphi,\cos\theta\sin\varphi,-\sin\theta) \\
+        \hat{\varphi} = (-\sin\varphi,\cos\varphi,0)
+    \end{gather*}
+
+    \begin{gather*}
+        \dot{\hat{r}} = (\cos\theta\cos\varphi\dot{\theta}-\sin\theta\sin\varphi\dot{\varphi},
+        \cos\theta\sin\varphi\dot{\theta}+\sin\theta\cos\varphi\dot{\varphi},
+        -\sin\theta\dot{\theta}) \\
+        \dot{\hat{\theta}} = (-\sin\theta\cos\varphi\dot{\theta}-\cos\theta\sin\varphi\dot{\varphi},
+        -\sin\theta\sin\varphi\dot{\theta}+\cos\theta\cos\varphi\dot{\varphi}
+        -\cos\theta\dot{\theta},) \\
+        \dot{\hat{\varphi}} = (-\cos\varphi\dot{\varphi},-\sin\varphi\dot{\varphi},0)
+    \end{gather*}
+
+    \begin{gather*}
+        \dot{\hat{r}} = \sin\theta\dot{\varphi}\hat{\varphi}+\dot{\theta}\hat{\theta} \\
+        \dot{\hat{\theta}} = \cos\theta\dot{\varphi}\hat{\varphi}-\dot{\theta}\hat{r} \\
+        \dot{\hat{\varphi}} = (-\sin\theta\hat{r}-\cos\theta\hat{\theta})\dot{\varphi}
+    \end{gather*}
+
+    接下来正式求加速度。
+
+    \section[方法一 直接求导]{方法一~直接求导}\label{sec:2}
+    % 中文标题带空格，要使用~
+
+    \section[方法二 借助转动系的加速度变换公式]{方法二~借助转动系的加速度变换公式}\label{sec:3}
+
+    \section[方法三 借助广义力形式的拉格朗日方程]{方法三~借助广义力形式的拉格朗日方程}\label{sec:4}
 
 \end{document}
