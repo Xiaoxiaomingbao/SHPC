@@ -2,14 +2,51 @@
 %! Date = 2024/4/17
 
 % Preamble
-\documentclass[11pt]{article}
+\documentclass{ctexart}
 
 % Packages
 \usepackage{amsmath}
+\usepackage{float}
+\usepackage{tikz}
+
+\title{平面极坐标、柱坐标、球坐标下的加速度表达式}
+\author{小小洺宝}
+\date{2024年4月18日}  % 最后一次编译的时间
 
 % Document
 \begin{document}
 
+    \maketitle  % 生成标题
+    
+    \section{导言}\label{sec:1}
 
+    下文提到的速度表达式和加速度表达式分别指用坐标对时间的一阶和二阶导数及坐标相应的基底表示速度和加速度矢量的公式。
+    因为直角坐标系的基底不随坐标变化而变化，直角坐标系下速度和加速度的表达式非常简单。但本文所探讨的这三种坐标系不具有该性质，
+    于是推导三种坐标系下速度和加速度的表达式不那么容易。
+
+    下面是三种坐标系的图。不同书上用来表示坐标的字母不同，这里统一以图上为准。
+
+    对平面极坐标系
+    \begin{equation*}
+        \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta}
+        % 微分符号为直立的小写字母d，要使用\mathrm{text}
+    \end{equation*}
+    
+    对柱坐标系
+    \begin{equation*}
+        \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta} + \mathrm{d}z\cdot\hat{k}
+    \end{equation*}
+    
+    对球坐标系
+    \begin{equation*}
+        \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta} + r\mathrm{sin}\theta
+        \mathrm{d}\varphi\cdot\hat{\varphi}
+    \end{equation*}
+
+    \section{方法一\space直接求导}\label{sec:2}
+
+    \section{方法二\space借助转动系的加速度变换公式}\label{sec:3}
+
+    \section{方法三\space借助广义力形式的拉格朗日方程}\label{sec:4}
 
 \end{document}
