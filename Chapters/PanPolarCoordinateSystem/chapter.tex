@@ -11,7 +11,7 @@
 
 \title{平面极坐标、柱坐标、球坐标下的加速度表达式}
 \author{申治洺}
-\date{2024年4月18日}  % 最后一次编译的时间
+\date{2022年10月22日\footnote{最初发表时间。本文最初发表于知乎，可参见https://zhuanlan.zhihu.com/p/574555169}}
 
 % Document
 \begin{document}
@@ -105,11 +105,130 @@
 
     接下来正式求加速度。
 
-    \section[方法一 直接求导]{方法一~直接求导}\label{sec:2}
+    \section{方法一、直接求导}\label{sec:2}
     % 中文标题带空格，要使用~
 
-    \section[方法二 借助转动系的加速度变换公式]{方法二~借助转动系的加速度变换公式}\label{sec:3}
+    对平面极坐标系，
+    \begin{align*}
+        \vec{a} &= \ddot{r}\hat{r}+\dot{r}\dot{\hat{r}}+(\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
+        +r\dot{\theta}\dot{\hat{\theta}} \\
+        &= \ddot{r}\hat{r}+\dot{r}\dot{\theta}\hat{\theta}+(\dot{r}\dot{\theta}+r\ddot{\theta})
+        \hat{\theta}+r\dot{\theta}(-\dot{\theta}\hat{r}) \\
+        &= (\ddot{r}-r\dot{\theta}^2)\hat{r}+(r\ddot{\theta}+2\dot{r}\dot{\theta})\hat{\theta}
+    \end{align*}
 
-    \section[方法三 借助广义力形式的拉格朗日方程]{方法三~借助广义力形式的拉格朗日方程}\label{sec:4}
+    应当指出角向分量中的第二项来自科氏加速度，这一点在法二中可以看出。
+
+    对球坐标系，同理得,
+    \begin{equation*}
+        \vec{a} = (\ddot{r}-r\dot{\theta}^2-r\sin^2\theta\dot{\varphi}^2)\hat{r}+
+        (r\ddot{\theta}+2\dot{r}\dot{\theta}-r\sin\theta\cos\theta\dot{\varphi^2})\hat{\theta}+
+        (r\sin\theta\ddot{\varphi}+2\dot{r}\sin\theta\dot{\varphi}+
+        2r\cos\theta\dot{\theta}\dot{\varphi})\hat{\varphi}
+    \end{equation*}
+
+    \section{方法二、借助转动系的加速度变换公式}\label{sec:3}
+
+    用$\vec{a_a}$、$\vec{a_e}$、$\vec{a_r}$、$\vec{a_c}$分别表示绝对加速度、牵连加速度、相对加速度、科氏加速度，
+    用$\vec{\omega}$和$\vec{\beta}$分别表示转动系的角速度和角加速度。
+
+    \begin{gather*}
+        \vec{a_a} = \frac{\mathrm{d}^2\vec{r_a}}{\mathrm{d}t^2} \\
+        \vec{a_e} = \frac{\mathrm{d}^2\vec{r_e}}{\mathrm{d}t^2}+
+        \vec{\omega}\times(\vec{\omega}\times\vec{r_r})+
+        \vec{\beta}\times\vec{r_r} \\
+        \vec{a_r} = (\frac{\mathrm{d}^2\vec{r_r}}{\mathrm{d}t^2})_{\text{动系}} \\
+        \vec{a_c} = 2\vec{\omega}\times(\frac{\mathrm{d}\vec{r}}{\mathrm{d}t})_{\text{动系}}
+    \end{gather*}
+
+    选取一个以坐标原点为定点，跟随径矢$\vec{r}$的方向不断转动的转动系。
+    在这个参考系中$\vec{r}$指向的质点只有径向方向的速度和加速度。
+
+    对平面极坐标系，显然有,
+    \begin{gather*}
+        \vec{\omega} = \dot{\theta}(\hat{r}\times\hat{\theta}) \\
+        \vec{\beta} = \ddot{\theta}(\hat{r}\times\hat{\theta})
+    \end{gather*}
+
+    使用加速度变换公式，得
+    \begin{gather}
+        \vec{v_r} = \dot{r}\hat{r} \label{eq:1} \\
+        \vec{a_r} = \ddot{r}\hat{r} \label{eq:2} \\
+        \vec{a_e} = \vec{\beta}\times\vec{r}+\vec{\omega}\times(\vec{\omega}\times\vec{r})
+        \label{eq:3} \\
+        \vec{a_c} = 2\vec{\omega}\times\dot{r}\hat{r} \label{eq:4}
+    \end{gather}
+
+    代入$\vec{\omega}$和$\vec{\beta}$的表达式，并将加速度各组成部分合并起来，得
+    \begin{equation*}
+        \vec{a} = (\ddot{r}-r\dot{\theta}^2)\hat{r}+(r\ddot{r}+2\dot{r}\dot{\theta})\hat{\theta}
+    \end{equation*}
+
+    对球坐标系，$\vec{\omega}$和$\vec{\beta}$的表达式比较复杂，
+    而且求$\vec{\beta}$时还要利用球坐标系各基底变化率的表达式。方向上$\vec{\omega}$与$\hat{r}\times\vec{v}$一致，
+    大小上$|\vec{\omega}| = \lim_{\Delta t \to 0}|\frac{\Delta\alpha}{\Delta t}|$，而
+    \begin{equation*}
+        |\hat{r}\times\vec{v}| = |\hat{r}\times\vec{v}_{\text{$\perp\hat{r}$}}| =
+        |\vec{v}_{\text{$\perp\hat{r}$}}| =
+        |r\cdot\lim_{\Delta t \to 0}\frac{\Delta\alpha}{\Delta t}| =
+        |\vec{r}|\lim_{\Delta t \to 0}|\frac{\Delta\alpha}{\Delta t}|
+    \end{equation*}
+
+    于是有,
+    \begin{gather*}
+        \vec{\omega} = \frac{\hat{r}\times\vec{v}}{|\vec{r}|} \\
+        \vec{\beta} = \frac{\mathrm{d}\vec{\omega}}{\mathrm{d}t}
+    \end{gather*}
+
+    将已知的各表达式代入，得
+    \begin{gather*}
+        \vec{\omega} = -\sin\theta\dot{\varphi}\hat{\theta}+\dot{\theta}\hat{\varphi} \\
+        \vec{\beta} = (-2\cos\theta\dot{\theta}\dot{\varphi}-\sin\theta\ddot{\varphi})\hat{\theta}+
+        (\ddot{\theta}-\sin\cos\dot{\varphi}^2)\hat{\varphi}
+    \end{gather*}
+
+    再利用公式\eqref{eq:1}\eqref{eq:2}\eqref{eq:3}\eqref{eq:4}，得
+    \begin{equation*}
+        \vec{a} = (\ddot{r}-r\dot{\theta}^2-r\sin^2\theta\dot{\varphi}^2)\hat{r}+
+        (r\ddot{\theta}+2\dot{r}\dot{\theta}-r\sin\theta\cos\theta\dot{\varphi^2})\hat{\theta}+
+        (r\sin\theta\ddot{\varphi}+2\dot{r}\sin\theta\dot{\varphi}+
+        2r\cos\theta\dot{\theta}\dot{\varphi})\hat{\varphi}
+    \end{equation*}
+
+    \section{方法三、借助广义力形式的拉格朗日方程}\label{sec:4}
+
+    广义力形式的拉格朗日方程
+    \begin{gather*}
+        Q_{\alpha} = \sum_{i = 1}^{n} \vec{F_i}\cdot\frac{\partial\vec{r_i}}{\partial q_{\alpha}} \\
+        \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial T}{\dot{q_{\alpha}}} -
+        \frac{\partial T}{q_{\alpha}} = Q_{\alpha}
+    \end{gather*}
+
+    \section{总结}\label{sec:5}
+
+    \begin{itemize}
+        \item 平面极坐标系
+            \begin{equation*}
+                \vec{a} = (\ddot{r}-r\dot{\theta}^2)\hat{r}+
+                (r\ddot{\theta}+2\dot{r}\dot{\theta})\hat{\theta}
+            \end{equation*}
+        \item 柱坐标系
+            \begin{equation*}
+                \vec{a} = (\ddot{r}-r\dot{\theta}^2)\hat{r}+
+                (r\ddot{\theta}+2\dot{r}\dot{\theta})\hat{\theta}+
+                \dot{z}\hat{k}
+            \end{equation*}
+        \item 球坐标系
+            \begin{equation*}
+                \vec{a} = (\ddot{r}-r\dot{\theta}^2-r\sin^2\theta\dot{\varphi}^2)\hat{r}+
+                (r\ddot{\theta}+2\dot{r}\dot{\theta}-r\sin\theta\cos\theta\dot{\varphi^2})\hat{\theta}+
+                (r\sin\theta\ddot{\varphi}+2\dot{r}\sin\theta\dot{\varphi}+
+                2r\cos\theta\dot{\theta}\dot{\varphi})\hat{\varphi}
+            \end{equation*}
+    \end{itemize}
+
+    上面给出的三种方法中，最容易想到的是第一种方法，不过需要求出各个基底变化率的表达式，尤其是球坐标，计算量不小；
+    第二种方法需要大家学过理论力学中点的合成运动相关内容，求平面极坐标系的加速度表达式非常简便，
+    但是求球坐标系的加速度表达式很复杂，这时不建议使用；第三种方法需要大家学过分析力学的部分内容，但是它是三种方法中最简便的一种。
 
 \end{document}
