@@ -168,8 +168,8 @@
     而且求$\vec{\beta}$时还要利用球坐标系各基底变化率的表达式。方向上$\vec{\omega}$与$\hat{r}\times\vec{v}$一致，
     大小上$|\vec{\omega}| = \lim_{\Delta t \to 0}|\frac{\Delta\alpha}{\Delta t}|$，而
     \begin{equation*}
-        |\hat{r}\times\vec{v}| = |\hat{r}\times\vec{v}_{\text{$\perp\hat{r}$}}| =
-        |\vec{v}_{\text{$\perp\hat{r}$}}| =
+        |\hat{r}\times\vec{v}| = |\hat{r}\times\vec{v}_{\perp\hat{r}}| =
+        |\vec{v}_{\perp\hat{r}}| =
         |r\cdot\lim_{\Delta t \to 0}\frac{\Delta\alpha}{\Delta t}| =
         |\vec{r}|\lim_{\Delta t \to 0}|\frac{\Delta\alpha}{\Delta t}|
     \end{equation*}
@@ -202,6 +202,46 @@
         Q_{\alpha} = \sum_{i = 1}^{n} \vec{F_i}\cdot\frac{\partial\vec{r_i}}{\partial q_{\alpha}} \\
         \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial T}{\dot{q_{\alpha}}} -
         \frac{\partial T}{q_{\alpha}} = Q_{\alpha}
+    \end{gather*}
+
+    这里假想径矢$\vec{r}$指向一个质量为$m$的质点，设其受到外力$\vec{F}$。
+
+    对平面极坐标系，质点被约束在一个平面内，自由度为2，$r$和$\theta$两个广义坐标就可以描述其运动。
+    \begin{gather*}
+        T = \frac{1}{2} m (\dot{r}^2+r^2\dot{\theta}^2) \\
+        Q_r = \vec{F}\cdot\frac{\partial\vec{r}}{\partial r} = F_r = ma_r \\
+        Q_{\theta} = \vec{F}\cdot\frac{\partial\vec{r}}{\partial\theta} = rF_{\theta} = mra_{\theta} \\
+        \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial T}{\dot{r}}-\frac{\partial T}{r} = Q_r \\
+        \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial T}{\dot{\theta}}-
+        \frac{\partial T}{\theta} = Q_{\theta}
+    \end{gather*}
+
+    整理得，
+    \begin{gather*}
+        a_r = \ddot{r}-r\dot{\theta}^2 \\
+        a_{\theta} = r\ddot{\theta}+2\dot{r}\dot{\theta}
+    \end{gather*}
+
+    对球坐标系，质点可在整个空间自由运动，自由度为3，用$r$,$\theta$和$\varphi$三个广义坐标描述其运动。
+    \begin{gather*}
+        T = \frac{1}{2} m (\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2) \\
+        Q_r = \vec{F}\cdot\frac{\partial\vec{r}}{\partial r} = F_r = ma_r \\
+        Q_{\theta} = \vec{F}\cdot\frac{\partial\vec{r}}{\partial\theta} = rF_{\theta} = mra_{\theta} \\
+        Q_{\varphi} = \vec{F}\cdot\frac{\partial\vec{r}}{\partial\varphi} =
+        r\sin\theta F_{\varphi} = mr\sin\theta a_{\varphi} \\
+        \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial T}{\dot{r}}-\frac{\partial T}{r} = Q_r \\
+        \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial T}{\dot{\theta}}-
+        \frac{\partial T}{\theta} = Q_{\theta} \\
+        \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial T}{\dot{\varphi}}-
+        \frac{\partial T}{\varphi} = Q_{\varphi}
+    \end{gather*}
+
+    整理得，
+    \begin{gather*}
+        a_r = \ddot{r}-r\dot{\theta}^2-r\sin^2\theta\dot{\varphi}^2 \\
+        a_{\theta} = r\ddot{\theta}+2\dot{r}\dot{\theta}-r\sin\theta\cos\theta\dot{\varphi^2} \\
+        a_{\varphi} = r\sin\theta\ddot{\varphi}+2\dot{r}\sin\theta\dot{\varphi}+
+        2r\cos\theta\dot{\theta}\dot{\varphi}
     \end{gather*}
 
     \section{总结}\label{sec:5}
