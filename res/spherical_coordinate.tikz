@@ -1,0 +1,33 @@
+\begin{tikzpicture}[>=stealth, scale=1]
+
+% Define axes with proper orientation and labels
+    \draw[->, thick] (0,0) -- (0,4) node[left] {$z$};
+    \draw[->, thick] (0,0) -- (4,0) node[right] {$y$};
+    \draw[->, thick] (0,0) -- (-3,-3) node[below right] {$x$};
+    \node[below left] at (0,0) {$O$};
+
+% Draw polar axis (in red) along x-axis
+    \draw[->, thick, red] (0,0) -- (-2,-2) node[above left] {\textcolor{red}{极轴}};
+
+% Define point P in cylindrical coordinates (x = 2√2, y = 2√2, z = 2√2)
+    \coordinate (P) at (0.828,0.828);
+% Projection of P to xy-plane
+    \coordinate (Q) at (0.828,-2);
+
+% Draw scalar r projection in xy-plane
+    \draw[thick] (0,0) -- (Q);
+
+% Draw position vector r in blue
+    \draw[blue, thick, ->] (0,0) -- (P) node[midway, right] {$r = |\vec{r}|$};
+
+% Draw height projection
+    \draw[dashed, thick] (Q) -- (P);
+
+% Draw xy-plane indicator (gray)
+    \fill[gray!20, opacity=0.3] (0,0) -- (-3,-3) -- (1,-3) -- (4,0) -- cycle;
+
+% Draw theta angle arc with direction arrow
+    \draw[thick, ->] (-0.5,-0.5) arc (225:292.490:0.707) node[midway, below] {$\varphi$};
+    \draw[thick, ->] (0,0.5) arc (90:45:0.5) node[midway, above] {$\theta$};
+
+\end{tikzpicture}

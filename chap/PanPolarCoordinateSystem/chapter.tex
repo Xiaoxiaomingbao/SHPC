@@ -11,7 +11,7 @@
 
 \title{平面极坐标、柱坐标、球坐标下的加速度表达式}
 \author{申治洺}
-\date{2022年10月22日\footnote{最初发表时间。本文最初发表于知乎，可参见https://zhuanlan.zhihu.com/p/574555169（后有改动）。}}
+\date{2022年10月22日\footnote{最初发表时间。本文最初发表于知乎，可参见https://zhuanlan.zhihu.com/p/574555169}}
 
 % Document
 \begin{document}
@@ -26,7 +26,7 @@
 
     下面是三种坐标系的图。不同书上用来表示坐标的字母不同，这里统一以图上为准。
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
     \centering
     \input{../../res/polar_coordinate.tikz}
     \caption{平面极坐标系}
@@ -39,7 +39,7 @@
         % 微分符号为直立的小写字母d，要使用\mathrm{text}
     \end{equation*}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \input{../../res/cylindrical_coordinate.tikz}
         \caption{柱坐标系}
@@ -51,6 +51,13 @@
         \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta} +
         \mathrm{d}z\cdot\hat{k}
     \end{equation*}
+
+    \begin{figure}[H]
+        \centering
+        \input{../../res/spherical_coordinate.tikz}
+        \caption{球坐标系}
+        \label{fig:spherical}
+    \end{figure}
     
     对球坐标系，
     \begin{equation*}
@@ -141,7 +148,9 @@
         2r\cos\theta\dot{\theta}\dot{\varphi})\hat{\varphi}
     \end{equation*}
 
-    \section{方法二、借助转动系的加速度变换公式}\label{sec:3}
+    \section[方法二、借助转动系的加速度变换公式]{方法二、借助转动系的加速度变换公式\protect\footnotemark}\label{sec:3}
+    \footnotetext{这部分推导是笔者独立完成的，当然此前已经有人这样做过了。可参考：华中科技大学理论力学教研室，
+    \textit{理论力学（第二版）}，专题1 在极坐标、柱坐标和球坐标下点的合成运动}
 
     用$\vec{a_a}$、$\vec{a_e}$、$\vec{a_r}$、$\vec{a_c}$分别表示绝对加速度、牵连加速度、相对加速度、科氏加速度，
     用$\vec{\omega}$和$\vec{\beta}$分别表示转动系的角速度和角加速度。
@@ -209,7 +218,8 @@
         2r\cos\theta\dot{\theta}\dot{\varphi})\hat{\varphi}
     \end{equation*}
 
-    \section{方法三、借助广义力形式的拉格朗日方程}\label{sec:4}
+    \section[方法三、借助广义力形式的拉格朗日方程]{方法三、借助广义力形式的拉格朗日方程\protect\footnotemark}\label{sec:4}
+    \footnotetext{梁昆淼、鞠国兴、施毅，\textit{力学（第四版）（下册）理论力学}，3.1 拉格朗日方程，例1}
 
     广义力形式的拉格朗日方程
     \begin{gather*}

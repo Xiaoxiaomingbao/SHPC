@@ -10,7 +10,7 @@ Copyright © 2025 by 申治洺
 
 ## 文章速览
 
-- [ ] 平面极坐标、柱坐标、球坐标下的加速度表达式 [PDF](chap/PanPolarCoordinateSystem/chapter.pdf)
+- [x] 平面极坐标、柱坐标、球坐标下的加速度表达式 [PDF](chap/PanPolarCoordinateSystem/chapter.pdf)
 - [ ] 刚体力学总结 [PDF](chap/RigidBody/chapter.pdf)
 
 ## About Git commits
