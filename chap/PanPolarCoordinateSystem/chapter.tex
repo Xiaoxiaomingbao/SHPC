@@ -11,7 +11,7 @@
 
 \title{平面极坐标、柱坐标、球坐标下的加速度表达式}
 \author{申治洺}
-\date{2022年10月22日\footnote{最初发表时间。本文最初发表于知乎，可参见https://zhuanlan.zhihu.com/p/574555169}}
+\date{2022年10月22日\footnote{最初发表时间。本文最初发表于知乎，可参见https://zhuanlan.zhihu.com/p/574555169（后有改动）。}}
 
 % Document
 \begin{document}
@@ -22,15 +22,29 @@
 
     下文提到的速度表达式和加速度表达式分别指用坐标对时间的一阶和二阶导数及坐标相应的基底表示速度和加速度矢量的公式。
     因为直角坐标系的基底不随坐标变化而变化，直角坐标系下速度和加速度的表达式非常简单。但本文所探讨的这三种坐标系不具有该性质，
-    于是推导三种坐标系下速度和加速度的表达式不那么容易。
+    所以推导三种坐标系下速度和加速度的表达式并非易事。
 
     下面是三种坐标系的图。不同书上用来表示坐标的字母不同，这里统一以图上为准。
+
+    \begin{figure}[ht]
+    \centering
+    \input{../../res/polar_coordinate.tikz}
+    \caption{平面极坐标系}
+    \label{fig:polar}
+    \end{figure}
 
     对平面极坐标系，
     \begin{equation*}
         \mathrm{d}\vec{l} = \mathrm{d}r\cdot\hat{r} + r\mathrm{d}\theta\cdot\hat{\theta}
         % 微分符号为直立的小写字母d，要使用\mathrm{text}
     \end{equation*}
+
+    \begin{figure}[ht]
+        \centering
+        \input{../../res/cylindrical_coordinate.tikz}
+        \caption{柱坐标系}
+        \label{fig:cylindrical}
+    \end{figure}
     
     对柱坐标系，
     \begin{equation*}
@@ -55,7 +69,7 @@
     \end{gather*}
     % begin{equation*} ... end{equation*} 环境只适用于单行的居中无编号公式
 
-    接下来准备求加速度，先求出各个基底变化率的表达式（一会儿会用）。
+    接下来准备求加速度，先求出各个基底变化率的表达式（稍后会用）。
     因为对平面极坐标系的加速度表达式稍加修改即可得柱坐标系的加速度表达式，所以下面不详细介绍柱坐标系的加速度表达式的求法。
 
     对平面极坐标系，画画图就可得出径向单位向量的增量平行于角向单位向量，角向单位向量的增量平行于径向单位向量，

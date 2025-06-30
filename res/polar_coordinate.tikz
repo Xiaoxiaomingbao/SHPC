@@ -1,0 +1,17 @@
+\begin{tikzpicture}[>=stealth, scale=0.8]
+
+% Draw coordinate axes
+        \draw[->, thick] (-1,0) -- (5,0) node[below] {$x$}; % x-axis
+        \draw[->, thick] (0,-1) -- (0,4) node[left] {$y$}; % y-axis
+        \node[below left] at (0,0) {$O$}; % Origin label
+
+% Draw polar axis (in red)
+        \draw[->, thick, red] (0,0) -- (4,0) node[midway, below] {\textcolor{red}{极轴}};
+
+% Draw sample vector
+        \draw[blue, thick, ->] (0,0) -- node[midway, above left] {$\vec{r}$} (3.2,2.4);
+
+% Draw theta angle arc
+        \draw[thick, ->] (1,0) arc (0:37:1) node[midway, right] {$\theta$};
+
+\end{tikzpicture}

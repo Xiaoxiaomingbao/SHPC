@@ -2,19 +2,16 @@
 
 ## 简介
 
-SHPC(Senior High Physics Competition)是一个LaTex排版语言的开源项目。`Chapters`目录下的各章节均包含TEX源文件和编译生成的PDF文件，`Resources`用于储存主文件引用的各种外部资源。
+SHPC(Senior High Physics Competition)是一个LaTex排版语言的开源项目。`chap`目录下的各章节均包含TEX源文件和编译生成的PDF文件，`res`用于储存主文件引用的各种外部资源。
 
 本项目用于总结我在高中物理竞赛学习过程中梳理的知识点和遇到的结论，也包括后来补充学习的部分内容。谨以此，追忆和纪念那段时刻奋斗的青春。
 
-Copyright © 2024 by 申治洺
+Copyright © 2025 by 申治洺
 
 ## 文章速览
 
-已完成：无
-
-进行中：
-- 平面极坐标、柱坐标、球坐标下的加速度表达式 [PDF](https://github.com/Xiaoxiaomingbao/SHPC/blob/master/Chapters/PanPolarCoordinateSystem/chapter.pdf)
-- 刚体力学总结 [PDF](https://github.com/Xiaoxiaomingbao/SHPC/blob/master/Chapters/RigidBody/chapter.pdf)
+- [ ] 平面极坐标、柱坐标、球坐标下的加速度表达式 [PDF](chap/PanPolarCoordinateSystem/chapter.pdf)
+- [ ] 刚体力学总结 [PDF](chap/RigidBody/chapter.pdf)
 
 ## About Git commits
 
